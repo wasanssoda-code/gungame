@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>권대은의 쌈뽕한 꼬추샷건</title>
+<title>권대은의 쌈뽕한 꼬추샷건 [ 권대은겜 시리즈 - 2 ]</title>
 <style>
 @font-face{font-family:'ONE Mobile POP';src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE Mobile POP.woff') format('woff');font-weight:normal;font-style:normal;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -101,8 +101,8 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 
 <div id="rotate-warn">
   <div class="icon">📱</div>
-  <div style="font-size:22px;color:#ff4466;font-family:'ONE Mobile POP',sans-serif;">야 폰 옆으로 눕혀라</div>
-  <div style="font-size:14px;opacity:.7;font-family:'ONE Mobile POP',sans-serif;">가로 모드 아니면 못 함 ㅋㅋ</div>
+  <div style="font-size:22px;color:#ff4466;font-family:'ONE Mobile POP',sans-serif;">폰 옆으로 눕혀라(가로로 하셈 제발 이거때문에 내 20분을 갈아넣었어 제발 진짜)</div>
+  <div style="font-size:14px;opacity:.7;font-family:'ONE Mobile POP',sans-serif;">가로 모드 아니면 하지마라</div>
 </div>
 
 <div id="loading">
@@ -126,36 +126,41 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
   <div id="level-display">레벨 <span id="level-num">1</span>임 ㅋ</div>
   <div id="enemy-count">살아있는 새끼들: <span id="enemy-num">0</span>마리</div>
   <div id="boss-bar-wrap">
-    <div id="boss-name">⚠ 보스새끼 등장 ⚠</div>
+    <div id="boss-name">⚠ 공습경보!!!! 보스새끼 등장!!!!! ⚠</div>
     <div id="boss-bar-bg"><div id="boss-bar" style="width:100%"></div></div>
   </div>
   <div id="kill-feed"></div>
   <div id="health-bar-bg"><div id="health-bar" style="width:100%"></div></div>
   <div id="stats">
-    <div class="stat-block"><div class="stat-label">체력임</div><div class="stat-value" id="health-val">100</div></div>
-    <div class="stat-block"><div class="stat-label">총알임</div><div class="stat-value" id="ammo-val">∞</div></div>
+    <div class="stat-block"><div class="stat-label">뽕@짝체력;;</div><div class="stat-value" id="health-val">100</div></div>
+    <div class="stat-block"><div class="stat-label">쌈@뽕총알;;</div><div class="stat-value" id="ammo-val">∞</div></div>
     <div class="stat-block"><div class="stat-label">점수다 이기새끼야</div><div class="stat-value" id="score-val">0</div></div>
   </div>
   <div id="weapon-display">
     <div id="weapon-name">권총</div>
-    <div id="weapon-mode">반자동 ㅋ</div>
+    <div id="weapon-mode">반자동</div>
   </div>
+  <!-- 무기 슬롯 5개로 확장 -->
   <div id="weapon-slots">
-    <div class="wslot active" id="ws0">1<br>권총</div>
-    <div class="wslot" id="ws1">2<br>꼬추샷건</div>
-    <div class="wslot" id="ws2">3<br>로켓</div>
+    <div class="wslot active" id="ws0">1<br>AK-67</div>
+    <div class="wslot" id="ws1">2<br>꼬추바나나</div>
+    <div class="wslot" id="ws2">3<br>권총</div>
+    <div class="wslot" id="ws3">4<br>꼬추샷건</div>
+    <div class="wslot" id="ws4">5<br>로켓</div>
   </div>
   <div id="minimap"><canvas id="minimap-canvas" width="120" height="120"></canvas></div>
   <div id="wave-announce"></div>
 </div>
 
-<!-- 모바일 -->
+<!-- 모바일 컨트롤 (무기 버튼 5개로 확장) -->
 <div id="mobile-controls">
   <div id="joystick-zone"><div id="joystick-base"></div><div id="joystick-knob"></div></div>
   <div id="wpn-row">
-    <div class="wpn-btn active" id="mb0" ontouchstart="event.preventDefault();switchWeapon(0)">🔫<br>권총</div>
-    <div class="wpn-btn" id="mb1" ontouchstart="event.preventDefault();switchWeapon(1)">💥<br>샷건</div>
-    <div class="wpn-btn" id="mb2" ontouchstart="event.preventDefault();switchWeapon(2)">🚀<br>로켓</div>
+    <div class="wpn-btn active" id="mb0" ontouchstart="event.preventDefault();switchWeapon(0)">🇷🇺<br>AK67</div>
+    <div class="wpn-btn" id="mb1" ontouchstart="event.preventDefault();switchWeapon(1)">🍌<br>바나나</div>
+    <div class="wpn-btn" id="mb2" ontouchstart="event.preventDefault();switchWeapon(2)">🔫<br>권총</div>
+    <div class="wpn-btn" id="mb3" ontouchstart="event.preventDefault();switchWeapon(3)">💥<br>샷건</div>
+    <div class="wpn-btn" id="mb4" ontouchstart="event.preventDefault();switchWeapon(4)">🚀<br>로켓</div>
   </div>
   <div id="look-zone"></div>
   <div id="shoot-btn"><span style="font-size:24px;">🔥</span><span>발사ㄱㄱ</span></div>
@@ -168,19 +173,19 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 <!-- 시작화면 -->
 <div class="overlay" id="start-screen">
   <h1 style="font-size:clamp(20px,4vw,52px);">권대은의 쌈뽕한<br>꼬추샷건</h1>
-  <div class="subtitle">디씨 명예의 전당 FPS · 살아남아봐 이기야</div>
+  <div class="subtitle">노무현을 기리며 · 살아남아봐 이기야</div>
   <button class="menu-btn" onclick="startGame()">▶ 게임 ㄱㄱ</button>
   <div class="controls-list">
     WASD / 방향키 — 이동 &nbsp;|&nbsp; 마우스 — 조준<br>
-    클릭 / SPACE — 발사 &nbsp;|&nbsp; 1/2/3 — 무기변경<br>
+    클릭 / SPACE — 발사 &nbsp;|&nbsp; 1/2/3/4/5 — 무기변경<br>
     R — 재장전 &nbsp;|&nbsp; SHIFT — 달리기 &nbsp;|&nbsp; ESC — 정지<br>
-    <span style="color:#00ccff;opacity:.8;">📱 폰이면 가로로 눕혀라 ㅋ</span>
+    <span style="color:#00ccff;opacity:.8;">📱 폰이면 가로로 눕혀라 색@기야</span>
   </div>
 </div>
 
 <div class="overlay" id="pause-screen" style="display:none">
   <h1>잠깐멈춤</h1>
-  <div class="subtitle">숨 좀 돌려라 ㅋㅋ</div>
+  <div class="subtitle">숨 좀 돌려라</div>
   <button class="menu-btn" onclick="resumeGame()">▶ 계속하기</button>
   <button class="menu-btn" onclick="restartGame()">↺ 처음부터</button>
   <button class="menu-btn" onclick="showStart()">⌂ 메인으로</button>
@@ -200,7 +205,7 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 </div>
 
 <div class="overlay" id="win-screen" style="display:none">
-  <h1 style="color:#ffcc00">와 씨볼 페이커 따라잡겠어유</h1>
+  <h1>와 씨볼 페이커 따라잡겠어유</h1>
   <div class="subtitle" id="win-score"></div>
   <button class="menu-btn" onclick="restartGame()">↺ 한판 더</button>
   <button class="menu-btn" onclick="showStart()">⌂ 메인으로</button>
@@ -222,14 +227,17 @@ let playerHealth=100,playerMaxHealth=100;
 let isReloading=false,reloadTimer=0;
 let levelCheckTimer=0;
 
+// [수정] 무기 데이터 어레이 확장 및 밸런싱 세팅
 const WEAPONS=[
-  {name:'권총',     mode:'반자동 ㅋ',   damage:25,rate:.3, ammo:Infinity,maxAmmo:Infinity,spread:.02,bulletColor:0x88aaff,bulletSpeed:40},
-  {name:'꼬추샷건', mode:'펌프액션 ㅋ', damage:18,rate:.9, ammo:24,      maxAmmo:24,       spread:.09,bulletColor:0xffaa00,bulletSpeed:32,pellets:6},
-  {name:'로켓런처', mode:'한방한방 ㅋ', damage:90,rate:1.8,ammo:10,      maxAmmo:10,       spread:.01,bulletColor:0xff3300,bulletSpeed:22,splash:5},
+  {name:'AK-67',     mode:'와 67676767 SIUUUUU', damage:30,rate:0.5,ammo:50,      maxAmmo:50,       spread:.04,bulletColor:0x00ff88,bulletSpeed:45},
+  {name:'꼬추바나나67',mode:'노 쿨타임(노무현쿨타임 아님)', damage:15,rate:0.02,ammo:100,     maxAmmo:100,      spread:.07,bulletColor:0xffff00,bulletSpeed:35},
+  {name:'권총',       mode:'반자동 뻐킹 피스톨',          damage:25,rate:.3, ammo:Infinity,maxAmmo:Infinity,spread:.02,bulletColor:0x88aaff,bulletSpeed:40},
+  {name:'꼬추샷건',   mode:'펌프액션 쑜껀',        damage:18,rate:.9, ammo:24,      maxAmmo:24,       spread:.09,bulletColor:0xffaa00,bulletSpeed:32,pellets:6},
+  {name:'로켓런처',   mode:'이걸 끼면 당신도 고죠??',        damage:90,rate:1.8,ammo:10,      maxAmmo:10,       spread:.01,bulletColor:0xff3300,bulletSpeed:22,splash:5},
 ];
 let currentWeapon=0;
-let weaponAmmo=[Infinity,24,10];
-let weaponCooldowns=[0,0,0];
+let weaponAmmo=[50,100,Infinity,24,10];
+let weaponCooldowns=[0,0,0,0,0];
 
 const LEVEL_CONFIGS=[
   {enemies:8, bossHealth:300,mapSize:36,wallColor:0x4a6a8a,floorColor:0x2a3a4a},
@@ -239,16 +247,16 @@ const LEVEL_CONFIGS=[
 
 // ══ 1인칭 무기 렌더러 ══
 let wpnScene,wpnCamera,wpnRenderer;
-let wpnMeshes=[null,null,null]; // 무기별 메시
+let wpnMeshes=[null,null,null,null,null]; // 무기별 메시 5개 대응
 let wpnBobTime=0;
-let wpnShootAnim=0; // 발사 반동 애니메이션
+let wpnShootAnim=0; 
 
 function initWeaponView(){
   const cvs=document.getElementById('weapon-canvas');
   const W=840,H=560;
   wpnScene=new THREE.Scene();
-  wpnCamera=new THREE.PerspectiveCamera(38,W/H,.01,20); // FOV 낮을수록 줌인
-  wpnCamera.position.set(0,0,.6); // 카메라 무기에 바짝 붙임
+  wpnCamera=new THREE.PerspectiveCamera(38,W/H,.01,20);
+  wpnCamera.position.set(0,0,.6);
   wpnCamera.lookAt(0,0,0);
 
   wpnRenderer=new THREE.WebGLRenderer({canvas:cvs,antialias:true,alpha:true});
@@ -267,91 +275,104 @@ function initWeaponView(){
 function buildWeaponMeshes(){
   wpnMeshes.forEach(m=>{if(m)wpnScene.remove(m);});
 
-  // ── 권총 ──
+  // ── [1번 슬롯] AK-67 (브레인롯 67 모양 형태 커스텀 모델링) ──
+  const akGrp=new THREE.Group();
+  // 67 베이스 몸체 (약간 직각이고 독특한 형태)
+  const akBodyG=new THREE.BoxGeometry(.06,.12,.42);
+  const akBodyM=new THREE.MeshPhongMaterial({color:0x332211,shininess:40}); // 빈티지 메탈브라운
+  const akBody=new THREE.Mesh(akBodyG,akBodyM);akGrp.add(akBody);
+  // 총열
+  const akBarrelG=new THREE.CylinderGeometry(.015,.015,.25,8);
+  const akBarrelM=new THREE.MeshPhongMaterial({color:0x111111,shininess:90});
+  const akBarrel=new THREE.Mesh(akBarrelG,akBarrelM);akBarrel.rotation.x=Math.PI/2;akBarrel.position.set(0,.03,-.3);akGrp.add(akBarrel);
+  // 브레인롯 67 장식용 구체 (머리) 표현
+  const brainG=new THREE.SphereGeometry(.05,8,8);
+  const brainM=new THREE.MeshPhongMaterial({color:0xff6688,shininess:10});
+  const brain=new THREE.Mesh(brainG,brainM);brain.position.set(0,.08,-.05);akGrp.add(brain);
+  // 탄창 (바나나 탄창처럼 휘어진 탄창 대신 67 특유의 각진 탄창)
+  const akMagG=new THREE.BoxGeometry(.04,.16,.08);
+  const akMagM=new THREE.MeshPhongMaterial({color:0x222222});
+  const akMag=new THREE.Mesh(akMagG,akMagM);akMag.position.set(0,-.12,-.08);akMag.rotation.x=0.2;akGrp.add(akMag);
+  akGrp.position.set(.22,-.16,-.18);
+  akGrp.rotation.y=.18;
+  wpnScene.add(akGrp);wpnMeshes[0]=akGrp;
+
+  // ── [2번 슬롯] 꼬추바나나67 (딜도+바나나 결합 형태 기괴한 커스텀 모델링) ──
+  const bananaGrp=new THREE.Group();
+  // 기본 바나나 바디
+  const banG=new THREE.CylinderGeometry(.032,.035,.38,8,4);
+  const banM=new THREE.MeshPhongMaterial({color:0xffee00,shininess:70}); // 바나나 노란색
+  const ban=new THREE.Mesh(banG,banM);ban.rotation.x=Math.PI/2.3;ban.position.set(0,0,-.05);bananaGrp.add(ban);
+  // 앞부분 딜도 모양 라운드 헤드 버섯모양 팁
+  const tipG=new THREE.SphereGeometry(.042,12,12);
+  const tipM=new THREE.MeshPhongMaterial({color:0xff88aa,shininess:110}); // 살구핑크색
+  const tip=new THREE.Mesh(tipG,tipM);tip.position.set(0,.04,-.22);bananaGrp.add(tip);
+  // 아래쪽 불알/뿌리 형태 구체 두 개
+  [-1,1].forEach(s=>{
+    const ballG=new THREE.SphereGeometry(.045,8,8);
+    const ball=new THREE.Mesh(ballG,tipM);ball.position.set(s*.035,-.06,.12);bananaGrp.add(ball);
+  });
+  bananaGrp.position.set(.24,-.15,-.18);
+  bananaGrp.rotation.y=.25;
+  wpnScene.add(bananaGrp);wpnMeshes[1]=bananaGrp;
+
+  // ── [3번 슬롯] 권총 ──
   const pistolGrp=new THREE.Group();
-  // 몸통
   const bodyG=new THREE.BoxGeometry(.08,.14,.28);
   const bodyM=new THREE.MeshPhongMaterial({color:0x222222,shininess:80});
   const body=new THREE.Mesh(bodyG,bodyM);pistolGrp.add(body);
-  // 슬라이드 (윗부분 밝게)
   const slideG=new THREE.BoxGeometry(.075,.065,.22);
   const slideM=new THREE.MeshPhongMaterial({color:0x444444,shininess:120});
   const slide=new THREE.Mesh(slideG,slideM);slide.position.set(0,.055,-.02);pistolGrp.add(slide);
-  // 총열
   const barrelG=new THREE.CylinderGeometry(.018,.018,.12,8);
   const barrelM=new THREE.MeshPhongMaterial({color:0x333333,shininess:100});
   const barrel=new THREE.Mesh(barrelG,barrelM);barrel.rotation.x=Math.PI/2;barrel.position.set(0,.04,-.17);pistolGrp.add(barrel);
-  // 손잡이
   const gripG=new THREE.BoxGeometry(.075,.12,.085);
   const gripM=new THREE.MeshPhongMaterial({color:0x1a1a1a,shininess:30});
   const grip=new THREE.Mesh(gripG,gripM);grip.position.set(0,-.1,.06);grip.rotation.x=-.18;pistolGrp.add(grip);
-  // 가늠자
-  const sightG=new THREE.BoxGeometry(.012,.022,.012);
-  const sightM=new THREE.MeshPhongMaterial({color:0xff3300});
-  const sight=new THREE.Mesh(sightG,sightM);sight.position.set(0,.09,-.17);pistolGrp.add(sight);
   pistolGrp.position.set(.22,-.15,-.18);
   pistolGrp.rotation.y=.22;
-  wpnScene.add(pistolGrp);wpnMeshes[0]=pistolGrp;
+  wpnScene.add(pistolGrp);wpnMeshes[2]=pistolGrp;
 
-  // ── 꼬추샷건 ──
+  // ── [4번 슬롯] 꼬추샷건 ──
   const shotGrp=new THREE.Group();
-  // 몸통 (두껍고 짧음)
   const sBodyG=new THREE.BoxGeometry(.1,.1,.55);
-  const sBodyM=new THREE.MeshPhongMaterial({color:0x5c3317,shininess:40}); // 나무색
+  const sBodyM=new THREE.MeshPhongMaterial({color:0x5c3317,shininess:40}); 
   const sBody=new THREE.Mesh(sBodyG,sBodyM);shotGrp.add(sBody);
-  // 총열 (두 개 - 더블배럴 느낌)
   [-1,1].forEach(s=>{
     const sbG=new THREE.CylinderGeometry(.022,.022,.5,8);
     const sbM=new THREE.MeshPhongMaterial({color:0x333333,shininess:80});
     const sb=new THREE.Mesh(sbG,sbM);sb.rotation.x=Math.PI/2;sb.position.set(s*.032,.03,-.22);shotGrp.add(sb);
   });
-  // 펌프 부분
   const pumpG=new THREE.BoxGeometry(.115,.07,.18);
   const pumpM=new THREE.MeshPhongMaterial({color:0x2a2a2a,shininess:60});
   const pump=new THREE.Mesh(pumpG,pumpM);pump.position.set(0,-.01,-.05);shotGrp.add(pump);
-  // 손잡이
   const sGripG=new THREE.BoxGeometry(.085,.14,.09);
   const sGripM=new THREE.MeshPhongMaterial({color:0x4a2a10,shininess:20});
   const sGrip=new THREE.Mesh(sGripG,sGripM);sGrip.position.set(0,-.1,.15);sGrip.rotation.x=-.2;shotGrp.add(sGrip);
-  // 개머리판
   const stockG=new THREE.BoxGeometry(.09,.1,.22);
   const stockM=new THREE.MeshPhongMaterial({color:0x5c3317,shininess:30});
   const stock=new THREE.Mesh(stockG,stockM);stock.position.set(0,-.02,.28);shotGrp.add(stock);
   shotGrp.position.set(.24,-.18,-.20);
   shotGrp.rotation.y=.18;
-  wpnScene.add(shotGrp);wpnMeshes[1]=shotGrp;
+  wpnScene.add(shotGrp);wpnMeshes[3]=shotGrp;
 
-  // ── 로켓런처 ──
+  // ── [5번 슬롯] 로켓런처 ──
   const rktGrp=new THREE.Group();
-  // 메인 튜브
   const tubeG=new THREE.CylinderGeometry(.06,.06,.7,10);
-  const tubeM=new THREE.MeshPhongMaterial({color:0x3a5a3a,shininess:40}); // 군용 녹색
+  const tubeM=new THREE.MeshPhongMaterial({color:0x3a5a3a,shininess:40}); 
   const tube=new THREE.Mesh(tubeG,tubeM);tube.rotation.x=Math.PI/2;rktGrp.add(tube);
-  // 튜브 앞 테두리
   const frontRingG=new THREE.TorusGeometry(.065,.008,6,14);
   const frontRingM=new THREE.MeshPhongMaterial({color:0x222222,shininess:60});
   const frontRing=new THREE.Mesh(frontRingG,frontRingM);frontRing.position.set(0,0,-.36);rktGrp.add(frontRing);
-  // 뒤 테두리
   const backRing=new THREE.Mesh(frontRingG,frontRingM);backRing.position.set(0,0,.36);rktGrp.add(backRing);
-  // 손잡이 (앞)
   const fGripG=new THREE.BoxGeometry(.05,.1,.06);
   const fGripM=new THREE.MeshPhongMaterial({color:0x222222,shininess:50});
   const fGrip=new THREE.Mesh(fGripG,fGripM);fGrip.position.set(0,-.1,-.15);fGrip.rotation.x=.15;rktGrp.add(fGrip);
-  // 손잡이 (뒤)
-  const rGrip=new THREE.Mesh(fGripG,fGripM);rGrip.position.set(0,-.1,.18);rGrip.rotation.x=-.18;rktGrp.add(rGrip);
-  // 조준기
-  const scopeG=new THREE.BoxGeometry(.04,.06,.14);
-  const scopeM=new THREE.MeshPhongMaterial({color:0x111111,shininess:100});
-  const scope=new THREE.Mesh(scopeG,scopeM);scope.position.set(0,.08,.05);rktGrp.add(scope);
-  // 경고 스티커 느낌 (빨간 띠)
-  const warnG=new THREE.BoxGeometry(.063,.063,.04);
-  const warnM=new THREE.MeshPhongMaterial({color:0xff2200});
-  const warn=new THREE.Mesh(warnG,warnM);warn.position.set(0,0,-.1);rktGrp.add(warn);
   rktGrp.position.set(.20,-.20,-.18);
   rktGrp.rotation.y=.15;
-  wpnScene.add(rktGrp);wpnMeshes[2]=rktGrp;
+  wpnScene.add(rktGrp);wpnMeshes[4]=rktGrp;
 
-  // 처음엔 현재 무기만 보이게
   showWeapon(currentWeapon);
 }
 
@@ -374,13 +395,14 @@ function updateWeaponView(dt){
   const recoilZ=wpnShootAnim*.12;
   const recoilPitch=-wpnShootAnim*.22;
 
-  // 기본 위치: 카메라(z=1)에서 바라볼 때 z=0 근처에 무기 배치
   const basePos=[
-    [.22,-.15,-.18],
-    [.24,-.18,-.20],
-    [.20,-.20,-.18],
+    [.22,-.16,-.18], // AK-67
+    [.24,-.15,-.18], // 꼬추바나나
+    [.22,-.15,-.18], // 권총
+    [.24,-.18,-.20], // 샷건
+    [.20,-.20,-.18]  // 로켓
   ];
-  const baseRotY=[.18,.15,.12];
+  const baseRotY=[.18,.25,.22,.18,.15];
 
   const m=wpnMeshes[currentWeapon];
   if(!m)return;
@@ -537,7 +559,7 @@ function fireEnemyBullet(e,tp){
 function shoot(){
   const w=WEAPONS[currentWeapon];
   if(weaponCooldowns[currentWeapon]>0)return;
-  if(weaponAmmo[currentWeapon]===0){showKillFeed('총알 없다 이기야 ㅋ 재장전해');return;}
+  if(weaponAmmo[currentWeapon]===0){showKillFeed('총알 없다 이기야 재장전하라노무현');return;}
   if(isReloading)return;
   weaponCooldowns[currentWeapon]=w.rate;
   if(weaponAmmo[currentWeapon]!==Infinity)weaponAmmo[currentWeapon]--;
@@ -597,7 +619,7 @@ function updatePickups(dt){
     const p=pickups[i];p.life-=dt;p.mesh.rotation.y+=dt*2;p.mesh.position.y=.25+Math.sin(Date.now()*.002)*.08;
     if(p.mesh.position.distanceTo(camera.position)<1.1){
       if(p.type==='health'){playerHealth=Math.min(playerMaxHealth,playerHealth+40);showKillFeed('❤ 피 +40 처먹어라');}
-      if(p.type==='ammo'){weaponAmmo[1]=WEAPONS[1].maxAmmo;weaponAmmo[2]=WEAPONS[2].maxAmmo;showKillFeed('🔫 총알 채워줬다 ㅋ');}
+      if(p.type==='ammo'){weaponAmmo[0]=WEAPONS[0].maxAmmo;weaponAmmo[1]=WEAPONS[1].maxAmmo;weaponAmmo[3]=WEAPONS[3].maxAmmo;weaponAmmo[4]=WEAPONS[4].maxAmmo;showKillFeed('🔫 총알 채워줬다 ㅋ');}
       if(p.type==='armor'){playerHealth=Math.min(playerMaxHealth,playerHealth+20);showKillFeed('🛡 방어구 +20 먹었네');}
       scene.remove(p.mesh);scene.remove(p.light);pickups.splice(i,1);updateHUD();continue;
     }
@@ -612,8 +634,8 @@ function takeDamage(amt){
   updateHUD();if(playerHealth<=0)triggerGameOver();
 }
 function reload(){
-  if(isReloading||currentWeapon===0||weaponAmmo[currentWeapon]===WEAPONS[currentWeapon].maxAmmo)return;
-  isReloading=true;reloadTimer=1.5;showKillFeed('재장전 중임... 잠깐기다려');
+  if(isReloading||currentWeapon===2||weaponAmmo[currentWeapon]===WEAPONS[currentWeapon].maxAmmo)return; // 권총(2번슬롯) 무한 제외
+  isReloading=true;reloadTimer=1.5;showKillFeed('재장전 중임 닥@치셈');
 }
 function switchWeapon(i){
   currentWeapon=i;
@@ -631,7 +653,8 @@ function updateHUD(){
   document.getElementById('enemy-num').textContent=enemies.length;
   document.getElementById('weapon-name').textContent=WEAPONS[currentWeapon].name;
   document.getElementById('weapon-mode').textContent=WEAPONS[currentWeapon].mode;
-  [0,1,2].forEach(i=>{
+  // [수정] 무기 슬롯 5개 활성화 바인딩 처리
+  [0,1,2,3,4].forEach(i=>{
     document.getElementById('ws'+i).classList.toggle('active',i===currentWeapon);
     const mb=document.getElementById('mb'+i);if(mb)mb.classList.toggle('active',i===currentWeapon);
   });
@@ -659,8 +682,9 @@ function drawMinimap(){
 // ══ LEVEL FLOW ══
 function initLevel(){
   clearScene();
-  playerHealth=playerMaxHealth;weaponAmmo=[Infinity,WEAPONS[1].maxAmmo,WEAPONS[2].maxAmmo];
-  weaponCooldowns=[0,0,0];isReloading=false;currentWeapon=0;levelCheckTimer=0;
+  // [수정] 전체 5개 무기 탄창 초기화
+  weaponAmmo=[WEAPONS[0].maxAmmo,WEAPONS[1].maxAmmo,Infinity,WEAPONS[3].maxAmmo,WEAPONS[4].maxAmmo];
+  weaponCooldowns=[0,0,0,0,0];isReloading=false;currentWeapon=0;levelCheckTimer=0;
   showWeapon(0);
   const cfg=LEVEL_CONFIGS[level-1];
   generateMap(cfg);spawnEnemies(cfg);
@@ -670,7 +694,7 @@ function initLevel(){
 }
 function announceWave(txt){const el=document.getElementById('wave-announce');el.textContent=txt;el.style.opacity='1';setTimeout(()=>el.style.opacity='0',2000);}
 function checkLevelComplete(){if(enemies.length>0)return;if(level>=3)triggerWin();else triggerLevelClear();}
-function triggerLevelClear(){gameState='levelclear';document.getElementById('levelclear-screen').style.display='flex';document.getElementById('levelclear-msg').textContent='스코어: '+score+'점 ㄷㄷ | 레벨 '+(level+1)+' ㄷㄱㅈ';}
+function triggerLevelClear(){gameState='levelclear';document.getElementById('levelclear-screen').style.display='flex';document.getElementById('levelclear-msg').textContent='스코어: '+score+'점 ㄷㄷ | 레벨 '+(level+1)+' 가즈아';}
 function nextLevel(){level++;document.getElementById('levelclear-screen').style.display='none';gameState='playing';initLevel();if(!isMobile())requestPointerLock();}
 function triggerGameOver(){gameState='gameover';document.getElementById('gameover-screen').style.display='flex';document.getElementById('gameover-score').textContent='스코어: '+score+'점 | 레벨 '+level+'에서 뒤짐 ㅋ';exitPointerLock();}
 function triggerWin(){gameState='win';document.getElementById('win-screen').style.display='flex';document.getElementById('win-score').textContent='최종 스코어: '+score+'점 ㄷㄷ 레전드임';exitPointerLock();}
@@ -687,7 +711,7 @@ document.addEventListener('mousemove',e=>{
   pitch=Math.max(-Math.PI/2.5,Math.min(Math.PI/2.5,pitch));
 });
 
-// ══ KEYBOARD ══
+// ══ KEYBOARD (5번 키까지 매핑 확장) ══
 document.addEventListener('keydown',e=>{
   if(gameState!=='playing')return;
   const k=e.code;
@@ -701,6 +725,8 @@ document.addEventListener('keydown',e=>{
   if(k==='Digit1')switchWeapon(0);
   if(k==='Digit2')switchWeapon(1);
   if(k==='Digit3')switchWeapon(2);
+  if(k==='Digit4')switchWeapon(3);
+  if(k==='Digit5')switchWeapon(4);
   if(k==='Escape')pauseGame();
 });
 document.addEventListener('keyup',e=>{
@@ -713,7 +739,7 @@ document.addEventListener('keyup',e=>{
 });
 document.addEventListener('mousedown',e=>{if(gameState==='playing'&&e.button===0){isShooting=true;shoot();}});
 document.addEventListener('mouseup',e=>{if(e.button===0)isShooting=false;});
-document.addEventListener('wheel',e=>{if(gameState==='playing'){switchWeapon((currentWeapon+(e.deltaY>0?1:-1)+3)%3);}});
+document.addEventListener('wheel',e=>{if(gameState==='playing'){switchWeapon((currentWeapon+(e.deltaY>0?1:-1)+5)%5);}}); // 마우스 휠 5개 대응
 
 // ══ MOBILE ══
 let joyActive=false,joyId=null,joyOrigin={x:0,y:0},joyDelta={x:0,y:0};
@@ -737,7 +763,7 @@ document.addEventListener('touchend',e=>{for(const t of e.changedTouches){if(t.i
 document.addEventListener('touchcancel',e=>{for(const t of e.changedTouches){if(t.identifier===joyId){joyActive=false;joyDelta={x:0,y:0};joystickKnob.style.transform='translate(-50%,-50%)';joyId=null;}if(t.identifier===lookId){lookActive=false;lookId=null;}}},{passive:false});
 lookZone.addEventListener('touchstart',e=>{e.preventDefault();if(lookActive)return;const t=e.changedTouches[0];lookActive=true;lookId=t.identifier;lookLast={x:t.clientX,y:t.clientY};},{passive:false});
 let shootHoldTimer=null;
-shootBtnEl.addEventListener('touchstart',e=>{e.preventDefault();if(gameState==='playing'){shoot();shootHoldTimer=setInterval(()=>{if(gameState==='playing')shoot();},200);}},{passive:false});
+shootBtnEl.addEventListener('touchstart',e=>{e.preventDefault();if(gameState==='playing'){shoot();shootHoldTimer=setInterval(()=>{if(gameState==='playing')shoot();},20);}},{passive:false}); // 꼬추바나나 무쿨 연사용 딜레이 단축
 shootBtnEl.addEventListener('touchend',e=>{e.preventDefault();clearInterval(shootHoldTimer);},{passive:false});
 shootBtnEl.addEventListener('touchcancel',()=>clearInterval(shootHoldTimer));
 reloadBtnEl.addEventListener('touchstart',e=>{e.preventDefault();reload();},{passive:false});
@@ -759,8 +785,11 @@ function gameLoop(){
   requestAnimationFrame(gameLoop);
   const dt=Math.min(clock.getDelta(),.05);
   if(gameState!=='playing'){renderer.render(scene,camera);return;}
-  for(let i=0;i<3;i++)if(weaponCooldowns[i]>0)weaponCooldowns[i]-=dt;
-  if(isShooting&&currentWeapon===0)shoot();
+  for(let i=0; i<5; i++) if(weaponCooldowns[i]>0) weaponCooldowns[i]-=dt;
+  
+  // [수정] 마우스 클릭 홀드 시 자동 연사 기능 지원 (무쿨 무기 대응)
+  if(isShooting && weaponCooldowns[currentWeapon]<=0) shoot();
+  
   if(isReloading){reloadTimer-=dt;if(reloadTimer<=0){weaponAmmo[currentWeapon]=WEAPONS[currentWeapon].maxAmmo;isReloading=false;updateHUD();showKillFeed('장전 완료 ㄱㄱ');}}
 
   const spd=sprinting?7:4;
@@ -787,7 +816,7 @@ function gameLoop(){
 // ══ BOOT ══
 async function boot(){
   const lb=document.getElementById('loading-bar'),lt=document.getElementById('loading-text');
-  const steps=[['엔진 켜는 중...ㅋ',25],['맵 생성 중임...',55],['적새끼들 소환 중...',80],['노무현이랑 같이 가자',100]];
+  const steps=[['엔진 켜는 중 기다려 미친련아',25],['맵 생성 중임 노무현련아',55],['적새끼들 소환 중임 니가 다 바를듯',80],['노무현이랑 같이 가자',100]];
   for(const [txt,pct] of steps){lt.textContent=txt;lb.style.width=pct+'%';await new Promise(r=>setTimeout(r,280));}
   initThree();
   initWeaponView();
