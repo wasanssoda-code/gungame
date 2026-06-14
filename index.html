@@ -123,8 +123,8 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
   <div id="crosshair"></div>
   <div id="damage-flash"></div>
   <div id="shoot-flash"></div>
-  <div id="level-display">레벨 <span id="level-num">1</span>임 ㅋ</div>
-  <div id="enemy-count">살아있는 애들: <span id="enemy-num">0</span>마리</div>
+  <div id="level-display">레벨 <span id="level-num">1</span>인데;;</div>
+  <div id="enemy-count">살아있는 @ㅏ가들: <span id="enemy-num">0</span>마리</div>
   <div id="boss-bar-wrap">
     <div id="boss-name">⚠ 공습경보!!!! 보스새끼 등장!!!!! ⚠</div>
     <div id="boss-bar-bg"><div id="boss-bar" style="width:100%"></div></div>
@@ -156,14 +156,14 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 <div id="mobile-controls">
   <div id="joystick-zone"><div id="joystick-base"></div><div id="joystick-knob"></div></div>
   <div id="wpn-row">
-    <div class="wpn-btn active" id="mb0" ontouchstart="event.preventDefault();switchWeapon(0)">🇷🇺<br>AK67</div>
+    <div class="wpn-btn active" id="mb0" ontouchstart="event.preventDefault();switchWeapon(0)">AK67</div>
     <div class="wpn-btn" id="mb1" ontouchstart="event.preventDefault();switchWeapon(1)">🍌<br>바나나</div>
     <div class="wpn-btn" id="mb2" ontouchstart="event.preventDefault();switchWeapon(2)">🔫<br>권총</div>
     <div class="wpn-btn" id="mb3" ontouchstart="event.preventDefault();switchWeapon(3)">💥<br>샷건</div>
     <div class="wpn-btn" id="mb4" ontouchstart="event.preventDefault();switchWeapon(4)">🚀<br>로켓</div>
   </div>
   <div id="look-zone"></div>
-  <div id="shoot-btn"><span style="font-size:24px;">🔥</span><span>발사ㄱㄱ</span></div>
+  <div id="shoot-btn"><span style="font-size:24px;">🔥</span><span>발사</span></div>
   <div id="action-btns">
     <div id="reload-btn"><span style="font-size:20px;">🔄</span><span>재장전</span></div>
   </div>
@@ -173,8 +173,7 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 <!-- 시작화면 -->
 <div class="overlay" id="start-screen">
   <h1 style="font-size:clamp(20px,4vw,52px);">권대은의 쌈뽕한<br>꼬추샷건</h1>
-  <div class="subtitle">노무현을 기리며 · 살아남아봐 이기야
-    팁 : 게임시작을 했더니 어느 방에 갇혔다고요? 그럼 쳐@기다리세요!! 그럼 해결됩니다!!</div>
+  <div class="subtitle">노무현을 기리며 · 살아남아봐 이기야 | [팁] : 게임시작을 했더니 어느 방에 갇혔다고요? 그럼 쳐@기다리세요!! 그럼 해결됩니다!!</div>
   <button class="menu-btn" onclick="startGame()">▶ 인게임 ㄱ</button>
   <div class="controls-list">
     WASD / 방향키 — 이동 &nbsp;|&nbsp; 마우스 — 조준<br>
@@ -231,7 +230,7 @@ let levelCheckTimer=0;
 // [수정] 무기 데이터 어레이 확장 및 밸런싱 세팅
 const WEAPONS=[
   {name:'AK-67',     mode:'와 67676767 SIUUUUU', damage:30,rate:0.09,ammo:50,      maxAmmo:50,       spread:.03,bulletColor:0x00ff88,bulletSpeed:45},
-  {name:'꼬추바나나67',mode:'노 쿨타임(노무현쿨타임 아님)', damage:100,rate:3,ammo:100,     maxAmmo:100,      spread:.07,bulletColor:0xffff00,bulletSpeed:35},
+  {name:'꼬추바나나67',mode:'노 쿨타임(노무현쿨타임 아님)', damage:100,rate:3,ammo:5,     maxAmmo:5,      spread:.07,bulletColor:0xffff00,bulletSpeed:35},
   {name:'권총',       mode:'반자동 뻐킹 피스톨',          damage:25,rate:.3, ammo:Infinity,maxAmmo:Infinity,spread:.02,bulletColor:0x88aaff,bulletSpeed:40},
   {name:'꼬추샷건',   mode:'펌프액션 쑜껀',        damage:18,rate:.9, ammo:24,      maxAmmo:24,       spread:.09,bulletColor:0xffaa00,bulletSpeed:32,pellets:6},
   {name:'로켓런처',   mode:'이걸 끼면 당신도 고죠??',        damage:90,rate:1.8,ammo:10,      maxAmmo:10,       spread:.01,bulletColor:0xff3300,bulletSpeed:22,splash:5},
