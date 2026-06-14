@@ -32,8 +32,13 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 
 #health-bar-bg{position:absolute;bottom:84px;left:20px;width:200px;height:5px;background:rgba(255,68,102,.2);border-radius:3px;}
 #health-bar{height:100%;background:#ff4466;border-radius:3px;transition:width .2s;}
-
-#weapon-display{position:absolute;bottom:20px;right:20px;text-align:right;}
+#weapon-display{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  text-align:right;
+  z-index: 20; /* 1인칭 무기(z-index: 11)보다 위로 올리기 */
+}
 #weapon-name{font-size:20px;color:#00ccff;font-family:'ONE Mobile POP',sans-serif;}
 #weapon-mode{font-size:13px;opacity:.5;margin-top:2px;font-family:'ONE Mobile POP',sans-serif;}
 
