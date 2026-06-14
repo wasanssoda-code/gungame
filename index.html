@@ -106,9 +106,9 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 </div>
 
 <div id="loading">
-  <div id="loading-title">꼬추샷건 로딩중</div>
+  <div id="loading-title">꼬추건 로딩중임</div>
   <div id="loading-bar-wrap"><div id="loading-bar"></div></div>
-  <div id="loading-text">준비 중임...</div>
+  <div id="loading-text">렌더링이랑 모델이랑 스크립트랑 아오 로딩할거 줠라많네</div>
 </div>
 
 <canvas id="canvas"></canvas>
@@ -124,7 +124,7 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
   <div id="damage-flash"></div>
   <div id="shoot-flash"></div>
   <div id="level-display">레벨 <span id="level-num">1</span>임 ㅋ</div>
-  <div id="enemy-count">살아있는 새끼들: <span id="enemy-num">0</span>마리</div>
+  <div id="enemy-count">살아있는 애들: <span id="enemy-num">0</span>마리</div>
   <div id="boss-bar-wrap">
     <div id="boss-name">⚠ 공습경보!!!! 보스새끼 등장!!!!! ⚠</div>
     <div id="boss-bar-bg"><div id="boss-bar" style="width:100%"></div></div>
@@ -173,8 +173,8 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 <!-- 시작화면 -->
 <div class="overlay" id="start-screen">
   <h1 style="font-size:clamp(20px,4vw,52px);">권대은의 쌈뽕한<br>꼬추샷건</h1>
-  <div class="subtitle">노무현을 기리며 · 살아남아봐 이기야</div>
-  <button class="menu-btn" onclick="startGame()">▶ 게임 ㄱㄱ</button>
+  <div class="subtitle">노무현을 기리며 · 살아남아봐 이기야\r 팁 : 게임시작을 했더니 어느 방에 갇혔다고요? 그럼 쳐@기다리세요!! 그럼 해결됩니다!!</div>
+  <button class="menu-btn" onclick="startGame()">▶ 인게임 ㄱ</button>
   <div class="controls-list">
     WASD / 방향키 — 이동 &nbsp;|&nbsp; 마우스 — 조준<br>
     클릭 / SPACE — 발사 &nbsp;|&nbsp; 1/2/3/4/5 — 무기변경<br>
@@ -194,12 +194,12 @@ body{background:#000;overflow:hidden;font-family:'ONE Mobile POP','Courier New',
 <div class="overlay" id="gameover-screen" style="display:none">
   <h1 style="color:#ff4466">쟤봐봐 뒤짐 ㅋㅋㅋㅋㅋㅋㅋㅋ</h1>
   <div class="subtitle" id="gameover-score"></div>
-  <button class="menu-btn" onclick="restartGame()">↺ 다시해봐</button>
+  <button class="menu-btn" onclick="restartGame()">↺ 와 니새끼의 리버스 페이커짓을 다시 씨부리싸는걸 보고싶다</button>
   <button class="menu-btn" onclick="showStart()">⌂ 메인으로</button>
 </div>
 
 <div class="overlay" id="levelclear-screen" style="display:none">
-  <h1 style="color:#ffcc00">클리어 ㅅㄱ</h1>
+  <h1 style="color:#ffcc00">클리어!! 와!! 샌즈!!!!</h1>
   <div class="subtitle" id="levelclear-msg"></div>
   <button class="menu-btn" onclick="nextLevel()">▶ 다음레벨 ㄷㄱㅈ</button>
 </div>
