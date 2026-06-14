@@ -298,23 +298,26 @@ function buildWeaponMeshes(){
   akGrp.rotation.y=.18;
   wpnScene.add(akGrp);wpnMeshes[0]=akGrp;
 
-  // ── [2번 슬롯] 꼬추바나나67 (딜도+바나나 결합 형태 기괴한 커스텀 모델링) ──
+  // ── [2번 슬롯] 꼬추바나나67 (불알 위치 위쪽 수정본) ──
   const bananaGrp=new THREE.Group();
-  // 기본 바나나 바디
   const banG=new THREE.CylinderGeometry(.032,.035,.38,8,4);
-  const banM=new THREE.MeshPhongMaterial({color:0xffee00,shininess:70}); // 바나나 노란색
+  const banM=new THREE.MeshPhongMaterial({color:0xffee00,shininess:70});
   const ban=new THREE.Mesh(banG,banM);ban.rotation.x=Math.PI/2.3;ban.position.set(0,0,-.05);bananaGrp.add(ban);
-  // 앞부분 딜도 모양 라운드 헤드 버섯모양 팁
+  
+  // 앞부분 딜도 모양 팁
   const tipG=new THREE.SphereGeometry(.042,12,12);
-  const tipM=new THREE.MeshPhongMaterial({color:0xff88aa,shininess:110}); // 살구핑크색
+  const tipM=new THREE.MeshPhongMaterial({color:0xff88aa,shininess:110});
   const tip=new THREE.Mesh(tipG,tipM);tip.position.set(0,.04,-.22);bananaGrp.add(tip);
-  // 아래쪽 불알/뿌리 형태 구체 두 개
+  
+  // [수정] 아래쪽 불알/뿌리 형태 구체의 위치를 위쪽(팁 방향, 앞쪽)으로 조정
+  // 기존: y=-.06, z=.12  ==>  변경: y=.01, z=-.04 (더 위쪽이자 화면 중심/앞쪽으로 전진 배치)
   [-1,1].forEach(s=>{
     const ballG=new THREE.SphereGeometry(.045,8,8);
-    const ball=new THREE.Mesh(ballG,tipM);ball.position.set(s*.035,-.06,.12);bananaGrp.add(ball);
+    const ball=new THREE.Mesh(ballG,tipM);
+    ball.position.set(s*.035, .01, -.04); 
+    bananaGrp.add(ball);
   });
-  bananaGrp.position.set(.24,-.15,-.18);
-  bananaGrp.rotation.y=.25;
+  bananaGrp.position.set(.24,-.15,-.18);bananaGrp.rotation.y=.25;
   wpnScene.add(bananaGrp);wpnMeshes[1]=bananaGrp;
 
   // ── [3번 슬롯] 권총 ──
